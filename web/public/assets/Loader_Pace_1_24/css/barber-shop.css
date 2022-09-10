@@ -1,0 +1,166 @@
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 2000;
+	width: 100%;
+	height: 12px;
+	background: rgba(255, 255, 255, 0.089);
+}
+
+.pace-inactive {
+	display: none;
+}
+
+.pace .pace-progress {
+	background-color: #13ece1;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	right: 100%;
+	width: 100%;
+	overflow: hidden;
+	height: 12px;
+}
+
+.pace .pace-progress:after {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: .5rem;
+	content: attr(data-progress-text);
+	font-family: "Helvetica Neue", sans-serif;
+	font-weight: 100;
+	font-size: 10px;
+	line-height: 1;
+	text-align: right;
+	color: rgb(0, 0, 0);
+}
+
+
+
+.pace .pace-progress-inner {
+	position: fixed;
+	top: 0;
+	right: -32px;
+	bottom: 0;
+	left: 0;
+	height: 12px;
+
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(0.25, rgba(255, 255, 255, 0.2)), color-stop(0.25, transparent), color-stop(0.5, transparent), color-stop(0.5, rgba(255, 255, 255, 0.2)), color-stop(0.75, rgba(255, 255, 255, 0.2)), color-stop(0.75, transparent), to(transparent));
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+	background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+	background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+	-webkit-background-size: 32px 32px;
+	-moz-background-size: 32px 32px;
+	-o-background-size: 32px 32px;
+	background-size: 32px 32px;
+
+	-webkit-animation: pace-theme-barber-shop-motion 500ms linear infinite;
+	-moz-animation: pace-theme-barber-shop-motion 500ms linear infinite;
+	-ms-animation: pace-theme-barber-shop-motion 500ms linear infinite;
+	-o-animation: pace-theme-barber-shop-motion 500ms linear infinite;
+	animation: pace-theme-barber-shop-motion 500ms linear infinite;
+}
+
+@-webkit-keyframes pace-theme-barber-shop-motion {
+	0% { -webkit-transform: none; transform: none; }
+	100% { -webkit-transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+@-moz-keyframes pace-theme-barber-shop-motion {
+	0% { -moz-transform: none; transform: none; }
+	100% { -moz-transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+@-o-keyframes pace-theme-barber-shop-motion {
+	0% { -o-transform: none; transform: none; }
+	100% { -o-transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+@-ms-keyframes pace-theme-barber-shop-motion {
+	0% { -ms-transform: none; transform: none; }
+	100% { -ms-transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+@keyframes pace-theme-barber-shop-motion {
+	0% { transform: none; transform: none; }
+	100% { transform: translate(-32px, 0); transform: translate(-32px, 0); }
+}
+
+.pace .pace-activity {
+	display: block;
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	right: 0;
+	width: 150px;
+	height: 150px;
+	-webkit-transition: -webkit-transform 0.3s;
+	transition: transform 0.3s;
+	-webkit-transform: translateX(100%) translateY(-100%) rotate(45deg);
+	transform: translateX(100%) translateY(-100%) rotate(45deg);
+	pointer-events: none;
+
+
+}
+
+
+.pace.pace-active .pace-activity {
+	-webkit-transform: translateX(50%) translateY(-50%) rotate(45deg);
+	transform: translateX(50%) translateY(-50%) rotate(45deg);
+}
+
+.pace .pace-activity::before,
+.pace .pace-activity::after {
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	position: absolute;
+	left: 50%;
+	display: block;
+	border: 5px solid #fff;
+	border-radius: 50%;
+	content: '';
+}
+
+.pace .pace-activity::before {
+	margin-left: -15px;
+    bottom: 15px;
+	width: 40px;
+	height: 40px;
+    border-top-color: rgba(101, 197, 101, 0.795);
+	border-bottom-color: rgba(57, 124, 224, 0.842);
+	-webkit-animation: pace-theme-corner-indicator-spin 3s linear infinite;
+	animation: pace-theme-corner-indicator-spin 3s linear infinite;
+}
+
+.pace .pace-activity::after {
+	bottom: 23px;
+    margin-left: -7px;
+    width: 24px;
+    height: 24px;
+    border-top-color: rgba(101, 197, 101, 0.795);
+	border-bottom-color: rgba(57, 124, 224, 0.842);
+	-webkit-animation: pace-theme-corner-indicator-spin 1s linear infinite;
+	animation: pace-theme-corner-indicator-spin 1s linear infinite;
+}
+
+@-webkit-keyframes pace-theme-corner-indicator-spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(359deg); }
+}
+@keyframes pace-theme-corner-indicator-spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(359deg); }
+}
